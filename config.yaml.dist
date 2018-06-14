@@ -1,0 +1,19 @@
+fints:
+  # HBCI / FinTS Url - You can find a server for your bank here: https://www.hbci-zka.de/institute/institut_auswahl.htm
+  server: "https://fints.ing-diba.de/fints/"
+  port: 443
+
+credenials:
+  # Your bank code / Bankleitzahl
+  bankcode: '50010517'
+
+  # Your online banking username / alias
+  username: ''
+
+  # Your online banking PIN (NOT! the pin of your bank card!)
+  pin: ''
+
+account:
+
+  # Since you can have multiple bank accounts you need to specify here which account should be displayed
+  number: ''

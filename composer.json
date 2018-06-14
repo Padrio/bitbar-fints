@@ -1,0 +1,12 @@
+{
+    "require": {
+        "nemiah/php-fints": "^1.0",
+        "steveedson/bitbar-php": "^0.4.1",
+        "symfony/yaml": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

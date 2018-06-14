@@ -1,0 +1,38 @@
+#!/usr/bin/php
+<?php
+use Fhp\Model\StatementOfAccount\Transaction;
+
+require_once 'vendor/autoload.php';
+
+$config = \Symfony\Component\Yaml\Yaml::parseFile(__DIR__ . '/config.yaml');
+$balance = new \App\Banking($config);
+
+$bb = new \SteveEdson\BitBar();
+$head = $bb->newLine();
+$head->setText($balance->getSaldo());
+$head->show();
+
+$transactions = $balance->getTransactions();
+if(empty($transactions)) {
+    $line = $bb->newLine();
+    $line->setText('No transactions found');
+    $line->show(false);
+}
+
+foreach($transactions as $transaction) {
+    $line = $bb->newLine();
+    $line->setText(sprintf(
+        '%s: %s (Amount: %s)',
+        $transaction->getName(),
+        $transaction->getBookingText(),
+        ($transaction->getCreditDebit() == Transaction::CD_DEBIT ? '-' : '+') . $transaction->getAmount() . ' EUR'
+    ));
+
+    if($transaction->getCreditDebit() == Transaction::CD_DEBIT) {
+        $line->setColor('#ff0000');
+    } else {
+        $line->setColor('#33cc33');
+    }
+
+    $line->show(false);
+}
