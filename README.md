@@ -9,7 +9,7 @@ Please note: by using this Plugin, anyone who looks at your screen can see your 
 # Setup
 First of all you need Composer and PHP (atleast Version 7.0) with the curl extension installed on your machine. Then you can go ahead and clone the repository into your Bitbar Plugin Directory:
 
-```
+```bash
 # This directory can be different on your system
 cd .bitbar
 
